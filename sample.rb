@@ -5,7 +5,7 @@ class Tutorial < Gosu::Window
     super 640, 480
     self.caption = "Tutorial Game"
 
-    @background_image = Gosu::Image.new("media/space.png", :tileable => true)
+    @background_image = Gosu::Image.new("media/tput.jpg", :tileable => true)
 
     @player = Player.new
     @player.warp(320, 240)
@@ -54,7 +54,7 @@ class Player
   attr_reader :score
 
   def initialize
-    @image = Gosu::Image.new("media/starfighter.bmp")
+    @image = Gosu::Image.new("media/trump.png")
     @beep = Gosu::Sample.new("media/beep.wav")
     @x = @y = @vel_x = @vel_y = @angle = 0.0
     @score = 0
@@ -97,7 +97,7 @@ class Player
 
   def collect_stars(stars)
     stars.reject! do |star|
-      if Gosu.distance(@x, @y, star.x, star.y) < 35
+      if Gosu.distance(@x, @y, star.x, star.y) < 95
         @score += 10
         @beep.play
         true
